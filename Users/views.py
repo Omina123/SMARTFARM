@@ -16,9 +16,6 @@ def register(request):
             # Show success message
             messages.success(request, f"Welcome, {user.username}! Your farm account has been created.")
             
-            # Automatically log the user in
-            login(request, user)
-            
             # Redirect to the farm dashboard or crop list
             return redirect('Login') 
         else:
