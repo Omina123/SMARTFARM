@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card border-0 shadow-sm rounded-4">
+                <div class="card-header bg-success text-white p-4">
+                    <h4 class="mb-0 fw-bold"><i class="fas fa-map-marked-alt me-2"></i> {{ title }}</h4>
+                </div>
+                <div class="card-body p-4 p-md-5">
+                    <form method="POST">
+                        {% csrf_token %}
+                        
+                        <h5 class="text-success fw-bold mb-3 border-bottom pb-2">Location Details</h5>
+                        <div class="row mb-4">
+                            <div class="col-md-6">
+                                <label class="form-label-custom">Field Name</label>
+                                {{ form.name }}
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label-custom">Assign Field Agent</label>
+                                {{ form.agent }}
+                            </div>
+                        </div>
+
+                        <h5 class="text-success fw-bold mb-3 border-bottom pb-2">Crop & Growth Details</h5>
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <label class="form-label-custom">Crop Type</label>
+                                {{ form.crop_name }}
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label-custom">Variety</label>
+                                {{ form.variety }}
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <div class="col-md-4">
+                                <label class="form-label-custom">Planting Date</label>
+                                {{ form.planting_date }}
+                            </div>
+                            <div class="col-md-4">
+                                <label class="form-label-custom">Expected Harvest</label>
+                                {{ form.expected_harvest_date }}
+                            </div>
+                            <div class="col-md-4">
+                                <label class="form-label-custom">Acreage</label>
+                                {{ form.acreage }}
+                            </div>
+                        </div>
+
+                        <div class="mb-4">
+                            <label class="form-label-custom">Current Lifecycle Stage</label>
+                            {{ form.stage }}
+                        </div>
+
+                        <div class="d-flex gap-2">
+                            <button type="submit" class="btn btn-success px-5 fw-bold">SAVE FIELD</button>
+                            <a href="{% url 'dashboard' %}" class="btn btn-outline-secondary">Cancel</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

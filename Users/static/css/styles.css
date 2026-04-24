@@ -1,0 +1,106 @@
+/* --- Variables --- */
+:root {
+    --farm-green: #14452F;
+    --leaf-green: #8DC63F;
+    --earth-brown: #5D4037;
+    --soft-white: #f8fafc;
+    --shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* --- Layout --- */
+.auth-bg {
+    background-color: #f1f4f2;
+    background-image: url("https://www.transparenttextures.com/patterns/cubes.png"); /* Subtle texture */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.auth-card {
+    background: #ffffff;
+    border-radius: 20px;
+    border: none;
+    box-shadow: var(--shadow);
+    overflow: hidden;
+}
+
+/* --- Header --- */
+.auth-header {
+    background: var(--farm-green);
+    padding: 40px 20px;
+    color: white;
+}
+
+.logo-circle {
+    width: 60px;
+    height: 60px;
+    background: var(--leaf-green);
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+    color: var(--farm-green);
+}
+
+/* --- Form Fields --- */
+.form-label-custom {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #64748b;
+    margin-bottom: 5px;
+    display: block;
+}
+
+.form-control, .form-select {
+    border-radius: 10px !important;
+    padding: 12px 15px !important;
+    border: 1px solid #e2e8f0 !important;
+    font-size: 0.95rem !important;
+    background-color: #fcfdfe !important;
+}
+
+.form-control:focus {
+    border-color: var(--leaf-green) !important;
+    box-shadow: 0 0 0 4px rgba(141, 198, 63, 0.1) !important;
+}
+
+/* --- Buttons --- */
+.btn-register {
+    background: var(--farm-green);
+    color: white;
+    padding: 14px;
+    border-radius: 12px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    border: none;
+    transition: all 0.3s ease;
+}
+
+.btn-register:hover {
+    background: var(--earth-brown);
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+/* --- Links & Misc --- */
+.login-link {
+    color: var(--farm-green);
+    text-decoration: none;
+    font-weight: 700;
+}
+
+.login-link:hover {
+    color: var(--leaf-green);
+}
+
+.error-msg {
+    color: #ef4444;
+    font-size: 0.75rem;
+    margin-top: 4px;
+}
+
+.alert {
+    border-radius: 10px;
+    border: none;
+}

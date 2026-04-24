@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container py-4">
+    <div class="mb-4">
+        <h3 class="fw-bold text-success">My Field Assignments</h3>
+        <p class="text-muted small">Welcome back, Agent {{ request.user.username }}</p>
+    </div>
+
+    <div class="row g-3 mb-4">
+        <div class="col-md-4">
+            <div class="card border-0 shadow-sm p-3 border-start border-success border-4">
+                <div class="small text-muted fw-bold">My Active Fields</div>
+                <div class="h3 fw-bold">{{ active }}</div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card border-0 shadow-sm p-3 border-start border-danger border-4">
+                <div class="small text-muted fw-bold">My Risk Alerts</div>
+                <div class="h3 fw-bold text-danger">{{ at_risk }}</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        {% for field in fields %}
+        <div class="col-md-6 mb-4">
+            <div class="card border-0 shadow-sm rounded-4">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between mb-3">
+                        <h5 class="fw-bold mb-0 text-success">{{ field.name }}</h5>
+                        <span class="badge {% if field.computed_status == 'At Risk' %}bg-danger{% else %}bg-success{% endif %}">
+                            {{ field.computed_status }}
+                        </span>
+                    </div>
+                    <div class="small mb-3">
+                        <strong>Crop:</strong> {{ field.crop.name }} ({{ field.crop.variety }})<br>
+                        <strong>Planted:</strong> {{ field.crop.planting_date }}<br>
+                        <strong>Stage:</strong> {{ field.get_stage_display }}
+                    </div>
+                    <hr>
+                    <a href="{% url 'update_field' field.id %}" class="btn btn-outline-success w-100">
+                        <i class="fas fa-edit me-2"></i> Update Stage & Notes
+                    </a>
+                </div>
+            </div>
+        </div>
+        {% empty %}
+        <div class="col-12 text-center py-5">
+            <p class="text-muted">No fields assigned to you currently.</p>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
