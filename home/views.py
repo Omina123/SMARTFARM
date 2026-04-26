@@ -9,7 +9,7 @@ from django.contrib import messages
 
 def home(request):
     return render(request, 'index.html')
-
+@login_required
 def dashboard(request):
     # Determine the queryset based on role
     if request.user.user_type == '1': # Admin
